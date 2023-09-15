@@ -4,7 +4,7 @@ menu = f'''
 
           Bem vindo ao Banco RESENDE
 
-[d] Depósito  [s] Saque  [e] Extrato  [q] Sair]
+[d] Depósito  [s] Saque  [e] Extrato  [a] Saldo Atual  [q] Sair] 
 Selecione a operação que deseja realizar:'''
 
 saldo = 0
@@ -23,6 +23,7 @@ while True:
         if valor > 0:
             saldo += valor
             extrato += f"Depósito: R$ {valor:.2f}\n"
+            print('Seu saldo atual é {}'.format(saldo))
 
         else:
             print("Operação falhou! O valor informado é inválido.")
@@ -49,6 +50,7 @@ while True:
             saldo -= valor
             extrato += f"Saque: R$ {valor:.2f}\n"
             numero_saques += 1
+            print('Seu saldo atual é {}'.format(saldo))
 
         else:
             print("Operação falhou! O valor informado é inválido.")
@@ -58,6 +60,9 @@ while True:
         print("Não foram realizadas movimentações." if not extrato else extrato)
         print(f"\nSaldo: R$ {saldo:.2f}")
         print("-------------------------------------------")
+
+    elif opcao == 'a':
+        print('Seu saldo atual é {}'.format(saldo))
 
     elif opcao == "q":
         break
